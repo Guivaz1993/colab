@@ -1,0 +1,9 @@
+.ListUser{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0 1rem 3rem;
+}
