@@ -1,29 +1,39 @@
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
+import {
+  Avatar,
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  Typography
+} from '@mui/material';
 
-export default function UserCard({img,firstName,lastName,age}:{img:string,firstName:string,lastName:string,age:number}) {
+export default function UserCard({
+  img,
+  firstName,
+  lastName,
+  age,
+}: {
+  img: string;
+  firstName: string;
+  lastName: string;
+  age: number;
+}) {
   return (
-    <Card sx={{ width: "18rem", height: "20vh",padding: "1rem"}}>
-      {/* <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image={img}
-      /> */}
-      <CardContent>
-      <Avatar alt={`${firstName} ${lastName}`} src={img} />
-        <Typography gutterBottom variant="h6" component="div" sx={{textOverflow:"ellipsis",overflow:"hidden"}}>
-          {`${firstName} ${lastName} - ${age}`} 
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Mais informações</Button>
-      </CardActions>
+    <Card sx={{ width: '100%', background: '#e6e6e6' }}>
+      <CardActionArea>
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant='h4'
+            component='div'
+            sx={{ display: 'flex', alignItems: 'center', gap: '1rem' }}
+          >
+            <Avatar alt={`${firstName} ${lastName}`} src={img} />
+            {`${firstName} ${lastName} - ${age}`}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 }

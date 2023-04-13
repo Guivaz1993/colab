@@ -1,12 +1,21 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
+import { createContext } from 'react';
+import useUserProvider from '../hooks/useUserProvider';
 
-import { createContext } from "react";
-import useUserProvider from "../hooks/useUserProvider";
+interface UserContextData {
+  listUser: never[];
+  setListUser: React.Dispatch<React.SetStateAction<never[]>>;
+  currentUser: {};
+  setCurrentUser: React.Dispatch<React.SetStateAction<{}>>;
+}
 
-const UserContext = createContext({});
+const UserContext = createContext<UserContextData>({
+  listUser: [],
+  setListUser: () => {},
+  currentUser: {},
+  setCurrentUser: () => {},
+});
 
-export function UserProvider(props:any) {
+export function UserProvider(props: any) {
   const userProvider = useUserProvider();
 
   return (
@@ -17,3 +26,4 @@ export function UserProvider(props:any) {
 }
 
 export default UserContext;
+

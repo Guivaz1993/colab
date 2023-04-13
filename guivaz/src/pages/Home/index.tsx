@@ -5,9 +5,10 @@ import { toast } from 'react-toastify';
 import { get } from '../../services/functions';
 import useUser from '../../hooks/useUser';
 import UserCard from '../../components/Card';
+import { Typography } from '@mui/material';
 
 function Home() {
-  const [listUser, setListUser ] = useState([]);
+  const {listUser, setListUser} = useUser();
 
   const navigate = useNavigate();
 
@@ -32,11 +33,8 @@ function Home() {
   }, []);
 
   return (
-    <div className='App'>
-      <h1>Busque aqui as suas opções</h1>
-      <div className='card'>
-        <button onClick={() => fetchList()}>Buscar </button>
-      </div>
+    <div className='Home'>
+      <Typography variant="h1">Busque aqui as suas opções</Typography>
       <div className='ListUser'>
       {listUser.length > 0 ? (
         listUser.map((iten: any) => {

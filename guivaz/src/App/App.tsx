@@ -11,9 +11,9 @@ function App() {
         theme="light"
         style={{ width: "36rem", fontSize: "1.6rem" }}
       />
-      <div className="App">
+      <>
         <MyRoutes />
-      </div>
+      </>
     </UserProvider>
   );
 }
