@@ -27,12 +27,15 @@ body {
   margin: 0;
   display: flex;
   min-width: 320px;
-  min-height: 100vh;
+
   --colour-light: #e6e6e6;
   --colour-primary: #4d4dff;
   --colour-secundary: #d3deff;
   --colour-primarydark: #3655b3;
   --colour-primaryligth: #a6bcff;
+
+  background-color: var(--colour-secundary);
+
 }
 
 h1 {

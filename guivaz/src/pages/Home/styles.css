@@ -1,6 +1,6 @@
 .Home{
   padding: 2rem;
-  background-color: var(--colour-secundary);
+  min-height: 100%;
 }
 
 .ListUser{

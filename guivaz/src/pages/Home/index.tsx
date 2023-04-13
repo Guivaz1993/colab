@@ -4,9 +4,9 @@ import { toast } from 'react-toastify';
 import UserCard from '../../components/Card';
 import SimpleDialog from '../../components/Modal';
 import useUser from '../../hooks/useUser';
+import { User } from '../../hooks/useUserProvider';
 import { get } from '../../services/functions';
 import './styles.css';
-import { User } from '../../hooks/useUserProvider';
 
 function Home() {
   const { listUser, setListUser,openModal,handleModal } = useUser();
@@ -15,14 +15,14 @@ function Home() {
 
   async function fetchList() {
     try {
-      const { data, status } = await get(`/?seed=foobar&results=20&nat=BR`);
+      const { data, status } = await get(`/?seed=foobar&results=50&nat=BR`);
 
       if (status > 299) {
         toast.error(data.message);
 
         return navigate('/');
       }
-      console.log(data.results[0]);
+
       setListUser(data.results);
     } catch (error: any) {
       return toast.error(error.message);
