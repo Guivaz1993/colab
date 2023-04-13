@@ -3,10 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -40,8 +36,23 @@ body {
 }
 
 h1 {
-  font-size: 3.2rem;
+  font-size: 3.6rem;
   line-height: 1.1;
+  color: var(--colour-primarydark);
+}
+
+h3 {
+  font-size: 2.4rem;
+  line-height: 1.1;
+  color: var(--colour-primarydark);
+  padding-bottom: 0.4rem;
+
+  border-bottom: #3655b3 solid 1px;
+}
+
+p {
+  font-size: 2rem;
+  color: var(--colour-primary);
 }
 
 button {
@@ -51,13 +62,13 @@ button {
   font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--colour-primary);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: var(--colour-secundary);
 }
 button:focus,
 button:focus-visible {
@@ -65,16 +76,11 @@ button:focus-visible {
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
   a:hover {
-    color: #747bff;
+    color: var(--colour-primary);
   }
   button {
-    background-color: #f9f9f9;
+    background-color:var(--colour-secundary);
   }
 }
-
 

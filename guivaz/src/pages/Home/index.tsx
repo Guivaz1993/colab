@@ -1,14 +1,15 @@
-import { useEffect, useState } from 'react';
-import './styles.css';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { get } from '../../services/functions';
-import useUser from '../../hooks/useUser';
 import UserCard from '../../components/Card';
-import { Typography } from '@mui/material';
+import SimpleDialog from '../../components/Modal';
+import useUser from '../../hooks/useUser';
+import { get } from '../../services/functions';
+import './styles.css';
+import { User } from '../../hooks/useUserProvider';
 
 function Home() {
-  const {listUser, setListUser} = useUser();
+  const { listUser, setListUser,openModal,handleModal } = useUser();
 
   const navigate = useNavigate();
 
@@ -34,22 +35,34 @@ function Home() {
 
   return (
     <div className='Home'>
-      <Typography variant="h1">Busque aqui as suas opções</Typography>
+      <h1>Damos as nossas boas vindas para a nossa página</h1>
+      <p>
+        Aqui está nossa listagem de usuário, clique em um para visualizar mais
+        informações
+      </p>
       <div className='ListUser'>
-      {listUser.length > 0 ? (
-        listUser.map((iten: any) => {
-          return (
-            // <div key={iten.login.uuid}>
-            // </div> 
-            <UserCard key={iten.login.uuid} img={iten.picture.large} firstName={iten.name.first} lastName={iten.name.last} age={iten.dob.age}/>
+        {listUser.length > 0 ? (
+          listUser.map((iten: User) => {
+            return (
+              <UserCard
+                key={iten.login.uuid}
+                img={iten.picture.large}
+                firstName={iten.name.first}
+                lastName={iten.name.last}
+                age={iten.dob.age}
+                user={iten}
+              />
             );
           })
-          ) : (
-            <div>
-          <span>Carregando usuários...</span>
-        </div>
-      )}
+        ) : (
+          <div>
+            <span>Carregando usuários...</span>
+          </div>
+        )}
       </div>
+      <SimpleDialog open={openModal} 
+      onClose={handleModal}
+      />
     </div>
   );
 }
